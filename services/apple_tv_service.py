@@ -43,7 +43,9 @@ def get_movies_items_using_requests(profiles_urls, movie_path, request_interval=
         time.sleep(request_interval)
 
 
-def get_movies_items_using_selenium(profiles_urls, movie_path, max_clicks=5):
+def get_movies_items_using_selenium(
+    profiles_urls, movie_path, max_clicks=5, page_load_timeout=0.5
+):
     """
     A request using selenium allows to navigate through all the movie items of a given profile URL.
     Click on the arrow 'next' button to load next movie elements until the desired movie_path is found.
@@ -74,8 +76,7 @@ def get_movies_items_using_selenium(profiles_urls, movie_path, max_clicks=5):
             driver,
             "//button[@class='shelf-grid-nav__arrow shelf-grid-nav__arrow--next']",
         )
-        # Wait for the dynamically loaded content to appear
-        time.sleep(0.5)
+        time.sleep(page_load_timeout)
 
     driver.quit()
 
