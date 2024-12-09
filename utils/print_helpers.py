@@ -17,6 +17,7 @@ def print_extract_results(itunes_image, apple_tv_image):
 
 
 def print_search_results(movies_images):
+    print("\n")
     for title, image_url in movies_images:
         print(title)
         print(image_url)
