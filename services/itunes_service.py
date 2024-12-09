@@ -6,13 +6,15 @@ def scrape_itunes_image(movie_path):
     country = movie_path_parts[1]
     term = movie_path_parts[3]
     movies_images = get_itunes_movies_images(country, term, how_many=1)
+    if not movies_images:
+        return
     return movies_images[0]
 
 
 def get_itunes_movies_images(country, term, how_many):
     search_results = search_itunes_movies(country, term)
     if not search_results:
-        return
+        return []
 
     movies_images = []
     for rank, itunes_result in enumerate(search_results):
