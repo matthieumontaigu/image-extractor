@@ -35,17 +35,31 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run the tool using the main.py script:
+### Extract
+
+Run the tool using the main.py script to extract movie poster:
 ```bash
-python main.py <URL>
+python main.py extract --url <URL> --use-selenium
 ```
 
-### Example:
+#### Example:
 ```bash
-python src/main.py "https://tv.apple.com/movie/some-movie-url"
+python main.py extract --url "https://tv.apple.com/movie/some-movie-url" --use-selenium
 ```
 
 The tool will extract and display the high-resolution movie poster URL for the provided Apple TV or iTunes movie link.
+You can also disable selenium if needed, by removing the flag.
+
+### Search
+You can also look for the 10 best matches in the iTunes Store API, for any movie name.
+```bash
+python main.py search --country <COUNTRY> --term <TERM>
+```
+
+#### Example:
+```bash
+python main.py search --country us --term titanic
+```
 
 ## Directory Structure
 
