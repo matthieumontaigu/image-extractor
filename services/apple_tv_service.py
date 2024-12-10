@@ -71,6 +71,7 @@ def get_movies_items_using_selenium(
             no_effect_clicks += 1
         else:
             no_effect_clicks = 0
+            seen_movies = visible_movies
 
         click_button(
             driver,
@@ -79,6 +80,7 @@ def get_movies_items_using_selenium(
         time.sleep(page_load_timeout)
 
     driver.quit()
+    return movies_items
 
 
 def get_title(movie_item):
