@@ -10,13 +10,13 @@ A Python-based utility to fetch high-quality movie posters from Apple TV and iTu
 
 ## Requirements
 - Python 3.8 or higher
-- Google Chrome and ChromeDriver (for Selenium interactions)
+- Google Chrome and ChromeDriver (for optional Selenium interactions)
 
 ## Installation
 1. Clone the Repository:
 ```bash
-git clone https://github.com/your-username/movie-poster-tool.git
-cd movie-poster-tool
+git clone https://github.com/matthieumontaigu/image-extractor.git
+cd image-extractor
 ```
 
 2. Create a Virtual Environment (optional but recommended):
@@ -58,7 +58,7 @@ python main.py search --country <COUNTRY> --term <TERM>
 
 #### Example:
 ```bash
-python main.py search --country us --term titanic
+python main.py search --country "us" --term "titanic"
 ```
 
 ## Directory Structure
@@ -74,10 +74,10 @@ movie_poster_tool/
 └── services/                # Business logic for external services
 │   ├── apple_tv_service.py  # Apple TV scraping logic
 │   ├── itunes_service.py    # iTunes API interaction
-├── requirements.txt             # Python dependencies
-├── README.md                    # Project documentation
-├── LICENSE                      # License file
-└── .gitignore                   # Git ignored files
+├── requirements.txt         # Python dependencies
+├── README.md                # Project documentation
+├── LICENSE                  # License file
+└── .gitignore               # Git ignored files
 ```
 
 
@@ -89,10 +89,6 @@ Contributions are welcome! To contribute:
 3. Commit your changes (git commit -m 'Add some feature').
 4. Push to the branch (git push origin feature/new-feature).
 5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 - BeautifulSoup for HTML parsing.
