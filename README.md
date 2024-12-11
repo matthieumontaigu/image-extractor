@@ -71,12 +71,12 @@ movie_poster_tool/
 │   ├── selenium_helpers.py  # Selenium WebDriver setup and interaction
 │   ├── request_helpers.py   # HTTP requests
 │   ├── parsing_helpers.py   # BeautifulSoup HTML parsing
+│   └── print_helpers.py
 └── services/                # Business logic for external services
 │   ├── apple_tv_service.py  # Apple TV scraping logic
-│   ├── itunes_service.py    # iTunes API interaction
+│   └── itunes_service.py    # iTunes API interaction
 ├── requirements.txt         # Python dependencies
 ├── README.md                # Project documentation
-├── LICENSE                  # License file
 └── .gitignore               # Git ignored files
 ```
 
