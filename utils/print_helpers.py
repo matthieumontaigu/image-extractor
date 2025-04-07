@@ -1,4 +1,6 @@
-def print_extract_results(itunes_image, apple_tv_image):
+def print_extract_results(
+    itunes_image: tuple[str, str], apple_tv_image: tuple[str, str]
+) -> None:
     if not itunes_image and not apple_tv_image:
         return
 
@@ -16,7 +18,7 @@ def print_extract_results(itunes_image, apple_tv_image):
         print("\n")
 
 
-def print_search_results(movies_images):
+def print_search_results(movies_images: list[tuple[str, str]]) -> None:
     print("\n")
     for title, image_url in movies_images:
         print(title)
