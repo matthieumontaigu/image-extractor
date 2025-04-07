@@ -10,7 +10,7 @@ from utils.url_helpers import get_resized_image_url
 
 def get_thumbnail_url(
     page: BeautifulSoup, movie_path: str, use_selenium: bool
-) -> tuple[str, str] | None:
+) -> str | None:
     profiles_urls = get_profiles_urls(page)
     if not profiles_urls:
         print("No profiles found for this title.")
@@ -25,9 +25,8 @@ def get_thumbnail_url(
         return None
 
     movie_item = movies_items[0]
-    title = get_title(movie_item)
     image_url = get_image_url(movie_item)
-    return title, image_url
+    return image_url
 
 
 def get_movies_items_using_requests(
