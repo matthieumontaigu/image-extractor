@@ -15,9 +15,9 @@ def extract_domain(url: str) -> str:
     return urlparse(url).netloc
 
 
-def get_movie_path(url: str) -> str | None:
+def get_movie_path(url: str) -> str:
     match = re.search(r"tv.apple.com(.+)$", url)
-    return match.groups()[0] if match else None
+    return match.groups()[0] if match else ""
 
 
 def get_resized_image_url(url: str, size: str) -> str:
