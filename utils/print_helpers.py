@@ -1,20 +1,14 @@
-def print_extract_results(
-    itunes_image: tuple[str, str], apple_tv_image: tuple[str, str]
-) -> None:
-    if not itunes_image and not apple_tv_image:
-        return
-
+def print_artworks(title: str, artworks: dict[str, str]) -> None:
+    artworks_types = ["poster", "background", "logo", "thumbnail"]
     print("\n")
-    if itunes_image is not None:
-        title, image_url = itunes_image
-        print(title)
-        print(image_url)
-        print("\n")
-
-    if apple_tv_image is not None:
-        title, image_url = apple_tv_image
-        print(title)
-        print(image_url)
+    print(title)
+    print("\n")
+    for artwork_type in artworks_types:
+        artwork_url = artworks.get(artwork_type)
+        if artwork_url is None:
+            continue
+        print(artwork_type.upper())
+        print(artwork_url)
         print("\n")
 
 
