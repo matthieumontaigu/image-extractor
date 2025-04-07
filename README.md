@@ -9,7 +9,7 @@ A Python-based utility to fetch high-quality movie posters from Apple TV and iTu
 - Modular design for easy extensibility and maintenance.
 
 ## Requirements
-- Python 3.8 or higher
+- Python 3.10 or higher
 - Google Chrome and ChromeDriver (for optional Selenium interactions)
 
 ## Installation
@@ -39,16 +39,22 @@ pip install -r requirements.txt
 
 Run the tool using the main.py script to extract movie poster:
 ```bash
-python main.py extract --url <URL> --use-selenium
+python main.py extract --url <URL>
 ```
 
-#### Example:
+#### Example
 ```bash
-python main.py extract --url "https://tv.apple.com/movie/some-movie-url" --use-selenium
+python main.py extract --url "https://tv.apple.com/movie/some-movie-url"
 ```
 
 The tool will extract and display the high-resolution movie poster URL for the provided Apple TV or iTunes movie link.
-You can also disable selenium if needed, by removing the flag.
+
+#### Thumbnail
+```bash
+python main.py extract --url "https://tv.apple.com/movie/some-movie-url" --thumbnail --use-selenium
+```
+It is possible to extract thumbnail as an option. As it requires to dynamically navigate though the page, selenium is needed.
+If you do not support selenium, a fallback based on requests is implemented, just remove the flag.
 
 ### Search
 You can also look for the 10 best matches in the iTunes Store API, for any movie name.
@@ -56,7 +62,7 @@ You can also look for the 10 best matches in the iTunes Store API, for any movie
 python main.py search --country <COUNTRY> --term <TERM>
 ```
 
-#### Example:
+#### Example
 ```bash
 python main.py search --country "us" --term "titanic"
 ```
@@ -64,17 +70,24 @@ python main.py search --country "us" --term "titanic"
 ## Directory Structure
 
 ```plaintext
-movie_poster_tool/
+image-extractor/
 ├── main.py                  # Entry point for the application
 ├── utils/                   # Helper functions for common tasks
 │   ├── url_helpers.py       # URL parsing and validation
 │   ├── selenium_helpers.py  # Selenium WebDriver setup and interaction
 │   ├── request_helpers.py   # HTTP requests
 │   ├── parsing_helpers.py   # BeautifulSoup HTML parsing
-│   └── print_helpers.py
-└── services/                # Business logic for external services
-│   ├── apple_tv_service.py  # Apple TV scraping logic
-│   └── itunes_service.py    # iTunes API interaction
+│   └── print_helpers.py     # Printing utilities
+├── services/
+│   ├── apple_tv/            # Apple TV scraping logic
+│   │   ├── extract.py       # Extract artwork URLs
+│   │   ├── background.py    # Background image extraction
+│   │   ├── logo.py          # Logo image extraction
+│   │   ├── thumbnail.py     # Thumbnail image extraction
+│   │   └── utils.py         # Apple TV-specific utilities
+│   ├── itunes/              # iTunes API interaction
+│   │   ├── extract.py       # Extract artwork URLs
+│   │   └── search.py        # Search movies in iTunes
 ├── requirements.txt         # Python dependencies
 ├── README.md                # Project documentation
 └── .gitignore               # Git ignored files
