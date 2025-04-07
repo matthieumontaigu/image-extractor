@@ -1,13 +1,13 @@
 from services.itunes.search import search_movies
 
 
-def extract_artwork(movie_path: str) -> tuple[str, str] | None:
+def extract_artwork(movie_path: str) -> tuple[str, str]:
     movie_path_parts = movie_path.split("/")
     country = movie_path_parts[1]
     term = movie_path_parts[3]
     movies_artworks = get_artworks(country, term, how_many=1)
     if not movies_artworks:
-        return None
+        return "", ""
     return movies_artworks[0]
 
 
