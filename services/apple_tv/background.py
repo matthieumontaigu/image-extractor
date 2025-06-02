@@ -3,15 +3,9 @@ from services.apple_tv.utils import get_image_url
 
 
 def get_background_url(page: BeautifulSoup) -> str | None:
-    pictures = page.find_all("picture")
-    background_picture = None
-    for picture in pictures:
-        img = picture.find("img", class_="product-header__image-bg")
-        if img:
-            background_picture = picture
-            break
+    pictures = page.find_all("picture", class_="svelte-10tj07c")
 
-    if not background_picture:
+    if not pictures:
         return None
 
-    return get_image_url(background_picture, "4320x3240", "jpg")
+    return get_image_url(pictures[0], "4320x3240", "jpg")
