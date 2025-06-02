@@ -23,4 +23,4 @@ def get_movie_path(url: str) -> str:
 def get_resized_image_url(url: str, size: str) -> str:
     """Example: size = 3840x2160.jpg"""
     extension = size.split(".")[-1]
-    return re.sub(r"[\w]+x[\w]+\.{}$".format(extension), size, url)
+    return re.sub(r"[\w]+x[\w]+\-?[\d]+\.{}$".format(extension), size, url)
