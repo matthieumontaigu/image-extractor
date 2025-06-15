@@ -1,9 +1,12 @@
+import re
+
 from bs4 import BeautifulSoup
 from services.apple_tv.utils import get_image_url
 
 
 def get_logo_url(page: BeautifulSoup) -> str | None:
-    pictures = page.find_all("picture", class_="svelte-1fyueul")
+    pattern = re.compile(r"^picture")
+    pictures = page.find_all("picture", class_=pattern)
 
     if not pictures:
         return None
